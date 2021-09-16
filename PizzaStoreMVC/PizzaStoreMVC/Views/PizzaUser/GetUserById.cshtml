@@ -1,0 +1,43 @@
+﻿@model PizzaStoreMVC.Models.Users
+
+@{
+    ViewBag.Title = "GetUserById";
+}
+
+<h2>GetUserById</h2>
+
+<div>
+    <h2>User Detail</h2>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(model => model.Id)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Zipcode)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
