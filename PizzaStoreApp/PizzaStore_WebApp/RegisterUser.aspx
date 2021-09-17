@@ -1,99 +1,68 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterUser.aspx.cs" Inherits="PizzaStore_WebApp.RegisterUser" %>
+﻿<%@ Page Title="PizzaStore-Register" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="RegisterUser.aspx.cs" Inherits="PizzaStore_WebApp.RegisterUser" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>PizzaStore-Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <style>
-        .maindiv{
-            margin-left:auto;
-            margin-right:auto;
-            margin-top:10px;
-            width:400px;
-        }
-        .header{
-            width:400px;
-            color:blueviolet;
-            margin-left:auto;
-            margin-right:auto;
-            font-size:22px;
-            text-transform:capitalize;
-            margin-top:20px;
-        }
-    </style>
-</head>
-<body>
-    <form id="RegisterForm" runat="server">
+    <link rel="stylesheet" href="Scripts/Css/pizzastyle.css" />
 
-     <div class="maindiv"> <br />
-            <div class="form-group row">
-              <asp:Label for="tbName" ID="lblName" runat="server" Text="Name" class="col-sm-2 col-form-label"></asp:Label>
+    <div class="maindiv"> 
+        <div class="auto-style3"><span class="newStyle1" style="color: #CC33FF"><strong>&nbsp;&nbsp;&nbsp;<span style="background-color: #FFFFCC; padding: 7px; margin-bottom: 50px;">Register to Pizza-Store </span></strong></span></div> <br />
+        <br /><br />
+
+        <div class="form-group row">
+            <asp:Label for="tbName" ID="lblName" runat="server" Text="Name" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:TextBox ID="tbName" runat="server" class="form-control" placeholder="Please enter the name"></asp:TextBox>
+                <span id="nameError"></span>
             </div>
-            </div>
-                
-            <div class="form-group row">
-              <asp:Label for="tbEmail" ID="lblEmail" runat="server" Text="Email" class="col-sm-2 col-form-label"></asp:Label>
+        </div>
+
+        <div class="form-group row">
+            <asp:Label for="tbEmail" ID="lblEmail" runat="server" Text="Email" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:TextBox ID="tbEmail" runat="server" class="form-control" placeholder="Please enter the email"></asp:TextBox>
+                <span id="emailError"></span>
             </div>
-            </div>
-
-             <div class="form-group row">
-              <asp:Label for="tbZipcode" ID="lblZipcode" runat="server" Text="Zipcode" class="col-sm-2 col-form-label"></asp:Label>
+        </div>
+                
+        <div class="form-group row">
+            <asp:Label for="tbZipcode" ID="lblZipcode" runat="server" Text="Zipcode" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:TextBox ID="tbZipcode" runat="server" class="form-control" placeholder="Please enter the zipcode"></asp:TextBox>
+                <span id="zipcodeError"></span>
             </div>
-            </div>
+        </div>
                 
-             <div class="form-group row">
-              <asp:Label  ID="lblGender" runat="server" Text="Gender" class="col-sm-2 col-form-label"></asp:Label>
+        <div class="form-group row">
+            <asp:Label  ID="lblGender" runat="server" Text="Gender" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:RadioButton ID="rbMale" runat="server" GroupName="Gender" Text="Male" />
                 <asp:RadioButton ID="rbFemale" runat="server" GroupName="Gender" Text="Female" />
             </div>
-             </div>
+        </div>
            
-             <div class="form-group row">
-              <asp:Label for="tbPassword" ID="lblPassword" runat="server" Text="Password" class="col-sm-2 col-form-label"></asp:Label>
+        <div class="form-group row">
+            <asp:Label for="tbPassword" ID="lblPassword" runat="server" Text="Password" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
                 <asp:TextBox ID="tbPassword" runat="server" class="form-control" placeholder="Please enter the password"></asp:TextBox>
             </div>
-             </div>
+        </div>
 
-          <div class="form-group row">
-              <asp:Label for="tbCPassword" ID="lblCPassword" runat="server" Text="Confirm Password" class="col-sm-2 col-form-label"></asp:Label>
+        <div class="form-group row">
+            <asp:Label for="tbCPassword" ID="lblCPassword" runat="server" Text="Confirm Password" class="col-sm-2 col-form-label"></asp:Label>
             <div class="col-sm-10">
-                <asp:TextBox ID="tbCPassword" runat="server" class="form-control" placeholder="Please enter the password again" ></asp:TextBox>
+                <asp:TextBox ID="tbCPassword" runat="server" class="form-control" placeholder="Confirm your Password" ></asp:TextBox>
                 <span id="PswdError"></span>
-                </div>
-             </div>
-
-         <div class="form-group row">
-            <div class="col-sm-10 offset-sm-2">
-                <asp:Button ID="btn_Add" class="btn btn-primary" runat="server" Text="Register" OnClick="btn_Add_Click"   />
             </div>
-              
-          </div>
+        </div><br />
 
-    </div>
-        </form>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#tbCPassword").blur(function () {
-                var pswd = $("#tbPassword").val();
-                console.log(pswd);
-                var cpswd = $("#tbCPassword").val();
-                if (pswd != cpswd) {
-                    $("#PswdError").html("Both value must be same");
-                    $("#PswdError").css({ "color": "Red" });
-                }
-            }); 
-        });
-    </script>
-</body>
-</html>
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+            <asp:Button ID="btn_Add" class="btn btn-primary" runat="server" Text="Register" OnClick="btn_Add_Click" Height="44px" Width="124px"   />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_Login" class="btn btn-primary" runat="server" Text="Already a User" OnClick="btn_Login_Click" Height="44px" Width="182px"  />
+            </div>      
+        </div>
+   </div>
+
+
+</asp:Content>

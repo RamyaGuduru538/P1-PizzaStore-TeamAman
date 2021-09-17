@@ -8,8 +8,7 @@
         <p><a href="#" class="btn btn-primary btn-lg">See more &raquo;</a></p>
     </div>
 
-    <div class="row">
-        
+    <div class="row">    
     </div>
 
 </asp:Content>

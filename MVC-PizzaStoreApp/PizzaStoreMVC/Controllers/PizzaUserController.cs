@@ -30,10 +30,10 @@ namespace PizzaStoreMVC.Controllers
             var data = userRepo.GetUserById(id);
             return View(Models.Mapper.Map(data));
         }
-        public string DeleteUserById(int id)
+        public ActionResult DeleteUserById(int id)
         {
-            string str = userRepo.DeleteUserById(id);
-            return str;
+            userRepo.DeleteUserById(id);
+            return RedirectToAction("GetAllUser", "PizzaUser");
         }
     }
 }

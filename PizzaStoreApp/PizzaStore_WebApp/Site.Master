@@ -15,6 +15,12 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style>
+        #loginout{
+            float: right;
+        }
+    </style>
+
 </head>
 <body>
     <form runat="server">
@@ -55,7 +61,6 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/PizzaOrder">Order Pizza</a></li>
                         <li><a id="loginout" runat="server"></a></li>
-
                     </ul>
                 </div>
             </div>
@@ -65,12 +70,13 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
+                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
-
     </form>
-    
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/pizzascript.js"></script>
                 
 </body>
 </html>

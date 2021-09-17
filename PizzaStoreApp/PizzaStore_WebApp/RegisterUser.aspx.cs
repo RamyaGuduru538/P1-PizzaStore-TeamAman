@@ -17,6 +17,10 @@ namespace PizzaStore_WebApp
         {
 
         }
+        protected void btn_Login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginPage.aspx");
+        }
         protected void btn_Add_Click(object sender, EventArgs e)
         {
             string conString = ConfigurationManager.ConnectionStrings["PizzaStoreDb"].ConnectionString;
@@ -41,6 +45,7 @@ namespace PizzaStore_WebApp
                 if (record != 0)
                 {
                     MessageBox.Show("Data Inserted");
+                    Response.Redirect("LoginPage.aspx");
                 }
                 conn.Close();
                 tbName.Text = "";

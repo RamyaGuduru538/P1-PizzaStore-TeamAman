@@ -1,0 +1,25 @@
+.maindiv{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width:717px;
+    font-size: 15px;
+    height: 592px;
+    color:black;
+    font-weight: 600;
+    padding-left: 125px;
+    background-image: url(../../Images/download.png);
+    background-repeat: no-repeat;
+}
+.newStyle1 {
+    font-family: "Times New Roman";
+    color: black;
+}
+.auto-style3 {
+    font-family: "Times New Roman";
+    font-size: xx-large;
+    width: 635px;
+    color: #9933FF;
+}
