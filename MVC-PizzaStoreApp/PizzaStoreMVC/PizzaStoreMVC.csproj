@@ -179,6 +179,7 @@
     <Content Include="Views\PizzaUser\GetUserById.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\PizzaUser\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,8 @@ namespace PizzaStoreMVC.Models
 {
     public class Register
     {
-        [DisplayName("Full Name:")]
+        public int id { get; set; }
+        [DisplayName("Full Name")]
         [Required(ErrorMessage = "Name cannot be blank")]
         [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "Only Alphabets are allowed.")]
         public string Name { get; set; }

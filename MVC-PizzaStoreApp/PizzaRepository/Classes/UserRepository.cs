@@ -49,8 +49,23 @@ namespace PizzaRepository.Classes
                 Save();
             }
         }
+
         public void Save()
         {
+            db.SaveChanges();
+        }
+
+        public User EditUserDetail(int id)
+        {
+            User data = db.Users.Where(s => s.id == id).FirstOrDefault();
+            return data;
+        }
+        public void UpdateData(User obj)
+        {
+            User data = db.Users.Where(s => s.id == obj.id).FirstOrDefault();
+            data.Name = obj.Name;
+            data.email = obj.email;
+            data.Zipcode = obj.Zipcode;
             db.SaveChanges();
         }
     }
