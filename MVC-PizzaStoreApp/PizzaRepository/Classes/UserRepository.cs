@@ -16,7 +16,7 @@ namespace PizzaRepository.Classes
         }
         public void AddNewUser(User objuser)
         {
-            throw new NotImplementedException();
+
         }
 
         public IEnumerable<User> GetAllUser()

@@ -11,6 +11,9 @@ namespace PizzaStoreMVC.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.UserName = TempData["email"];
+            ViewBag.btnText = TempData["btnText"];
+            ViewBag.btnLink = TempData["btnLink"];
             return View();
         }
 

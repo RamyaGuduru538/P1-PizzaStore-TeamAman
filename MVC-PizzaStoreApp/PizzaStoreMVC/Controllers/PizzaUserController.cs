@@ -16,10 +16,6 @@ namespace PizzaStoreMVC.Controllers
             userRepo = new UserRepository(new PizzaDb());
         }
         // GET: PizzaUser
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult GetAllUser()
         {
             var data = userRepo.GetAllUser();

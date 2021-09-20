@@ -4,27 +4,25 @@
 }
 
 <h2>All Pizza Users</h2>
+@Html.ActionLink("Add New User", "AddNewUser")
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Gender</th>
-            <th>Email</th>
-            <th>Zipcode</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
-            {
-                <tr>
-                    <th scope="row">@user.id</th>
-                    <td>@user.Name</td>
-                    <td>@user.Gender</td>
-                    <td>@user.email</td>
-                    <td>@user.Zipcode</td>
-                </tr>
-            } 
+        {
+            <tr>
+                <th scope="row">@user.id</th>
+                <td>@user.Name</td>
+                <td>@user.Gender</td>
+                <td>@Html.ActionLink("Detail", "GetUserById", new { id = @user.id })</td>
+            </tr>
+        }
     </tbody>
 </table>
 

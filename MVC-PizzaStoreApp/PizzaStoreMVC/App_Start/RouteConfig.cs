@@ -18,11 +18,16 @@ namespace PizzaStoreMVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "AccountManage",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "PizzaUser",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "PizzaUser", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "PizzaUser", action = "GetAllUser", id = UrlParameter.Optional }
             );
         }
     }
