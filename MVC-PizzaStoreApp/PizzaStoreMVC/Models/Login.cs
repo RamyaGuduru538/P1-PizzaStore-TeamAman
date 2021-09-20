@@ -15,6 +15,7 @@ namespace PizzaStoreMVC.Models
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Password cannot be blank")]
+        [MinLength(5,ErrorMessage ="Length Must be greater than 5"),MaxLength(13, ErrorMessage = "Length Must be less than 13")]
         public string Password { get; set; }
 
     }

@@ -21,7 +21,7 @@ namespace PizzaStoreMVC.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Zipcode cannot be blank")]
-        [RegularExpression(@"^(\d{4})$", ErrorMessage = "Length Must be exact 5 and cannot start with 0")]
+        [RegularExpression(@"^(\d{5})$", ErrorMessage = "Length Must be exact 5 and cannot start with 0")]
 
         public int? Zipcode { get; set; }
 
@@ -30,7 +30,7 @@ namespace PizzaStoreMVC.Models
         [DisplayName("Password:")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Password cannot be blank")]
-        [Range(5,13)]
+        [MinLength(5, ErrorMessage = "Length Must be greater than 5"), MaxLength(13, ErrorMessage = "Length Must be less than 13")]
         public string Password { get; set; }
 
         [DisplayName("Re-Password:")]
