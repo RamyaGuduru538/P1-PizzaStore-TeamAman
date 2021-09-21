@@ -48,11 +48,6 @@ namespace PizzaDbData
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.TakingPizzaOrders)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Payment>()
                 .Property(e => e.status)
                 .IsUnicode(false);
@@ -112,6 +107,12 @@ namespace PizzaDbData
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Orders)
                 .WithRequired(e => e.User)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.TakingPizzaOrders)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.user_id)
                 .WillCascadeOnDelete(false);
         }
     }

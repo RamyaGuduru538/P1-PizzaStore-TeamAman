@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreMVC", "PizzaStoreMVC\PizzaStoreMVC.csproj", "{55D6550C-A13B-46C2-B8B7-140BFCA69A6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaDbData", "PizzaDbData\PizzaDbData.csproj", "{33414DF9-B88B-43FD-9ED0-C2263C5F28B8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaRepository", "PizzaRepository\PizzaRepository.csproj", "{221E01CF-283F-4E92-9857-59CB2E58299B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaDbData", "PizzaDbData\PizzaDbData.csproj", "{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{55D6550C-A13B-46C2-B8B7-140BFCA69A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D6550C-A13B-46C2-B8B7-140BFCA69A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D6550C-A13B-46C2-B8B7-140BFCA69A6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33414DF9-B88B-43FD-9ED0-C2263C5F28B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33414DF9-B88B-43FD-9ED0-C2263C5F28B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33414DF9-B88B-43FD-9ED0-C2263C5F28B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33414DF9-B88B-43FD-9ED0-C2263C5F28B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{221E01CF-283F-4E92-9857-59CB2E58299B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{221E01CF-283F-4E92-9857-59CB2E58299B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{221E01CF-283F-4E92-9857-59CB2E58299B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{221E01CF-283F-4E92-9857-59CB2E58299B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

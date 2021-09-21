@@ -22,6 +22,11 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,6 +44,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Order Pizza", "OrderPizza", "PizzaOrder")</li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="text-success">@Html.ActionLink(btnText, btnLink, "Account")</li>
@@ -50,9 +57,12 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+    </div>
+    <div class="container">
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

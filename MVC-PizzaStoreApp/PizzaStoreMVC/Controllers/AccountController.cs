@@ -36,17 +36,18 @@ namespace PizzaStoreMVC.Controllers
                         TempData["email"] = obj.Email;
                         TempData["btnText"] = "Log Out";
                         TempData["btnLink"] = "Logout";
+                        Session["userid"] = id;
                         TempData.Keep();
                         ViewBag.UserName = TempData["email"];
                         ViewBag.btnLink = TempData["btnLink"];
                         return RedirectToAction("Index", "Home");
                     }
                 }
-                return RedirectToAction("Login", "Account");
+                ViewBag.isValid = "Invalid Credentials";
+                return View();
             }
             return View();
         }
-
 
         public ActionResult Register()
         {

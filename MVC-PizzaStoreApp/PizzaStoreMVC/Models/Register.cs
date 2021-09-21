@@ -25,13 +25,18 @@ namespace PizzaStoreMVC.Models
 
         public int? Zipcode { get; set; }
 
+
+
         [Required(ErrorMessage = "Gender cannot be blank")]
         public char Gender { get; set; }
+
+
         [DisplayName("Password:")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Password cannot be blank")]
         [MinLength(5, ErrorMessage = "Length Must be greater than 5"), MaxLength(13, ErrorMessage = "Length Must be less than 13")]
         public string Password { get; set; }
+
 
         [DisplayName("Re-Password:")]
         [DataType(DataType.Password)]

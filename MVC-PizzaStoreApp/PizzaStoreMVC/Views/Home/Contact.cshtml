@@ -1,17 +1,72 @@
-﻿@{
+﻿@model PizzaStoreMVC.Models.ContactUs
+@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url( "../fonts/Images/Pizzastore.png");
+            height: 100vh;
+            width: 100vw;
+            background-size: 100%;
+        }
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+        .grp {
+            margin-top: 20px;
+        }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        .button {
+            font-size: 20px;
+        }
+        #margindiv{
+            margin-bottom:50px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <h1>@ViewBag.Message</h1>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <h4>Send your comments.</h4>
+        <hr />
+        <div class="form-group ">
+            @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label grp" })
+            <div class="col-md-10 grp">
+                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FromName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group ">
+            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label grp" })
+            <div class="col-md-10 grp">
+                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group ">
+            @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label grp" })
+            <div class="col-md-10 grp">
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="margindiv" class="form-group grp">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary grp button" value="Send" />
+            </div>
+        </div>
+    }
+
+</body>
+
+</html>

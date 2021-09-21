@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\OrderPizzaRepo.cs" />
     <Compile Include="Classes\UserRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PizzaDbData\PizzaDbData.csproj">
-      <Project>{33414df9-b88b-43fd-9ed0-c2263c5f28b8}</Project>
+      <Project>{9cfcd066-fa23-4e5b-a128-c729d60d3dc0}</Project>
       <Name>PizzaDbData</Name>
     </ProjectReference>
   </ItemGroup>

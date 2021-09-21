@@ -13,6 +13,7 @@ namespace PizzaDbData
         {
             Logins = new HashSet<Login>();
             Orders = new HashSet<Order>();
+            TakingPizzaOrders = new HashSet<TakingPizzaOrder>();
         }
 
         public int id { get; set; }
@@ -35,5 +36,8 @@ namespace PizzaDbData
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TakingPizzaOrder> TakingPizzaOrders { get; set; }
     }
 }
