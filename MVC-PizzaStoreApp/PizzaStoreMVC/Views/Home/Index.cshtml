@@ -1,31 +1,243 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#b1').click(function () {
+            window.location.href ="../PizzaOrder/OrderPizza";
+        });
+    });
+</script>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<style>
+    .background-img {
+        height: 70rem;
+        display: none;
+        width: 100%;
+    }
+    /* Exclusive Product */
+    .product-banner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 50rem;
+        background-color: #243a6f;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        .product-banner .left img {
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .product-banner .right {
+            align-self: center;
+            text-align: center;
+            padding: 1.6rem;
+        }
+
+        .product-banner .content h2 {
+            color: #fbb419;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .product-banner .content .discount {
+            color: #b888ff;
+        }
+
+        .product-banner .content h1 span {
+            color: #fff;
+            font-size: 6rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+    .btn {
+        display: inline-block;
+        background-color: #fc7c7c;
+        padding: 1.2rem 4rem;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 3rem;
+    }
+
+    /* Testimonials */
+    .testimonial-center {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 6rem;
+    }
+
+    .testimonial {
+        position: relative;
+        padding: 5rem;
+        background-color: #fff;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        transition: all 300ms ease-in-out;
+        text-align: center;
+        border-radius: 0.5rem;
+    }
+
+        .testimonial:hover {
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+            transform: translateY(-1rem);
+        }
+
+        .testimonial span {
+            position: absolute;
+            top: 2%;
+            left: 50%;
+            font-size: 12rem;
+            font-family: sans-serif;
+            color: #ff7c9c;
+            line-height: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .testimonial p {
+            margin: 2rem 0 1rem 0;
+        }
+
+        .testimonial .rating {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial .img-cover {
+            border-radius: 50%;
+            width: 8rem;
+            height: 8rem;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+            .testimonial .img-cover img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .testimonial h4 {
+            margin-top: 1rem;
+        }
+
+    .clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
+        display: table;
+        content: none;
+    }
+</style>
+
+@section carousel{
+    <div class="w3-content w3-section" style="max-width:100%">
+        <img src="../../fonts/Images/pizza8.jpg" class="background-img" style="width:100%" />
+        <img src="../../fonts/Images/pizza5.jpg" class="background-img" style="width:100%">
+        <img src="../../fonts/Images/pizza6.jpg" class="background-img" style="width:100%">
+        <img src="../../fonts/Images/pizza7.jpg" class="background-img" style="width:100%">
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+}
+<br />
+<br />
+<br />
+<div align="center">
+    <p style="color: darkorchid; font-weight: bold; font-size: 60px; background-color: yellow; padding: 10px;">Welcome to my Pizza Store!</p><br />
+    <p style="color: black; font-weight: bold; font-size: 40px; background-color: yellow; padding: 10px; ">Grab your Pizzas On The Way!!</p>
 </div>
+<br />
+<br />
+<br />
+
+<main>
+    <!-- Product Banner -->
+    <section class="section">
+        <div class="product-banner">
+            <div class="left">
+                <img src="../../fonts/Images/pizza2.jpg" alt="" style="height: 500px; width: 530px;">
+            </div>
+            <div class="right">
+                <div class="content">
+                    <h2><span class="discount">ABOUT </span> US</h2>
+                    <p id="sec1" style="color: white; text-align: center; font-size: 20PX;">
+                        We love to provide our fans with the best pizza deals that Pizzeria has to offer. Next time you're thinking of food places near me, don't forget about Pizzeria!!. <br>
+                        Pizzeria becomes the first and only national pizza delivery chain to offer points to its loyalty members no matter how they order - via online, phone, in-store. <br>
+                    </p>
+                    <a class="btn" id="b1">Grab your PIZZZAA Now!!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <h2 style="text-align: center; color: black; font-weight: bold; font-size: 30px; background-color: yellow; padding: 10px;">Testimonials</h2>
+        <br><br>
+
+        <div class="testimonial-center container">
+            <div class="testimonial">
+                <span>&ldquo;</span>
+                <p style="text-align: left">
+                    I often order from Pizzeria.
+                    They serve thin crust pizza
+                    Their Chicken Dominator pizza is a must try.
+                    And it is reasonable too:)
+                    Can't wait to try more amazing pizza's they are bringing this Diwali!!
+                </p>
+                <div class="rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                </div>
+                <div class="img-cover">
+                    <img src="../../Images/profile3.jpg" alt="" />
+                </div>
+                <h4>Priya Banerjee</h4>
+            </div>
+            <div class="testimonial">
+                <span>&ldquo;</span>
+                <p style="text-align: left">
+                    This place has never disappointed me, all cusisines are delectable.
+                    Packaging is amazing. My personal favorite is their cheeze burst pizza!!!
+                    Just loved them must try once.
+                </p>
+                <div class="rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                </div>
+                <div class="img-cover">
+                    <img src="../../Images/profile1.jpg" alt="" />
+                </div>
+                <h4>Sasha Jain</h4>
+            </div>
+            <div class="testimonial">
+                <span>&ldquo;</span>
+                <p style="text-align: left">
+                    Their pizza are the best out of all .
+                    The taste of their pizza are more than amazing .
+                    I have ordered pizza and beverages from here for my brother's bday.
+                    Highly recommended !!
+                </p>
+                <div class="rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <div class="img-cover">
+                    <img src="../../Images/profile2.jpg" alt="" />
+                </div>
+                <h4>Nikita Singh</h4>
+            </div>
+        </div>
+
+    </section>
+    <br><br><br>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>

@@ -34,7 +34,8 @@ namespace PizzaStoreMVC.Controllers
                     var LoginPass = db.Logins.Where(e => e.user_id == id).FirstOrDefault().Password;
                     if (obj.Email == userData.email && LoginPass == obj.Password)
                     {
-                        HttpCookie cookie = new HttpCookie("User_id", (userData.id).ToString());
+                        Session["userid"] = userData.id;
+                        HttpCookie cookie = new HttpCookie("User_email", (userData.email).ToString());
                         Response.Cookies.Add(cookie);
                         FormsAuthentication.SetAuthCookie(obj.Email, false);
                         return RedirectToAction("Index", "Home");

@@ -5,29 +5,53 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login Page</title>
+    <title>Contact Us</title>
     <style>
-        body {
-            background-image: url( "../fonts/Images/Pizzastore.png");
-            height: 100vh;
-            width: 100vw;
-            background-size: 100%;
-        }
-
-        .grp {
+        .btn {
+            display: inline-block;
+            background-color: white;
+            padding: 1.2rem 3.5rem;
+            color: black;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
             margin-top: 20px;
+            margin-left: 55px;
+            margin-bottom: 50px;
         }
 
-        .button {
+        .btn:hover {
+            background-color: #101010;
+            color: white;
+        }
+
+        .form-group {
+            padding-right: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: inline-block;
+            margin-bottom: 5px;
             font-size: 20px;
         }
-        #margindiv{
-            margin-bottom:50px;
+
+        .form-group input {
+            width: 95%;
+            border: 2px solid #f0f0f0;
+            border-radius: 5px;
+            display: block;
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            padding: 12px;
+        }
+
+        .form-group input:focus {
+            outline: 0;
+            border-color: #777;
         }
     </style>
-
-
-
 </head>
 
 <body>
@@ -37,36 +61,32 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <h4>Send your comments.</h4>
-        <hr />
+        <h2>Your Feedback matters!! We are happy to help you:)</h2>
+        <hr /><br />
         <div class="form-group ">
             @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label grp" })
             <div class="col-md-10 grp">
                 @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.FromName, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div><br />
         <div class="form-group ">
             @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label grp" })
             <div class="col-md-10 grp">
                 @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div><br />
         <div class="form-group ">
             @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label grp" })
             <div class="col-md-10 grp">
                 @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
             </div>
-        </div>
-        <div id="margindiv" class="form-group grp">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-primary grp button" value="Send" />
-            </div>
+        </div><br />
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-dark" value="Send" />
         </div>
     }
-
 </body>
-
 </html>

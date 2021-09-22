@@ -3,80 +3,195 @@
 @{
     ViewBag.Title = "Register";
     Layout = null;
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+<style>
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        background-color: #fff;
+        color: #101010;
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #fc7c7c;
+        padding: 1.2rem 3.5rem;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 20px;
+        margin-left: 55px;
+        margin-bottom: 50px;
+    }
+
+    .btn:hover {
+        background-color: #101010;
+        color: white;
+    }
+
+    .header1 {
+        background: linear-gradient(to left, #ffafbd, #ffc3a0);
+        padding: 30px 0;
+    }
+
+        .header1 h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+        }
+
+    .form1 {
+        padding-right: 40px;
+        font-size: 10px;
+    }
+
+    .form-group {
+        padding-right: 20px;
+        padding-left: 20px;
+        position: relative;
+    }
+
+        .form-group label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .form-group input {
+            width: 95%;
+            border: 2px solid #f0f0f0;
+            border-radius: 5px;
+            display: inline-block;
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            padding: 12px;
+        }
+
+            .form-group input:focus {
+                outline: 0;
+                border-color: #777;
+            }
+
+    .radio {
+        font-size: 15px;
+        display: inline;
+        padding: 2px;
+    }
+
+    .container1 {
+        background-color: #fff;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.3px;
+        overflow: hidden;
+        width: calc(100vw - 65vw);
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-left: 500px;
+        margin-right: 500px;
+        margin-top: 60px;
+    }
+
+    .text-danger {
+        color: red;
+        font-size: 12px;
+    }
+</style>
 
 
 @using (Html.BeginForm(FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
-<div class="container">
-    <h2>Register</h2>
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(mode => mode.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Zipcode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.Zipcode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Zipcode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                <div>
-                    @Html.RadioButtonFor(model => model.Gender, "M", htmlAttributes: new { @class = "control-label col-md-1" }) Male
+    <body style="background: url('../../fonts/Images/Pizzastore.png') no-repeat center center fixed; background-repeat: no-repeat; background-size: cover;">
+        <br>
+        <div class="container1">
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="header1">
+                    <h2>REGISTRATION FORM</h2>
                 </div>
-                <div>
-                    @Html.RadioButtonFor(model => model.Gender, "F", htmlAttributes: new { @class = "control-label col-md-1" })Female
+                <form class="form1" id="form">
+                    <div class="container ml-3"></div>
+                    <div class="form-horizontal">
+                        <hr /><br />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(mode => mode.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                </div>
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Zipcode, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Zipcode, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Zipcode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left: 0px;">
+                            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-2">
+                                <div class="radio">
+                                    @Html.RadioButtonFor(model => model.Gender, "M", htmlAttributes: new { @class = "control-label col-md-1" }) Male
+                                </div>
+                                <div class="radio">
+                                    @Html.RadioButtonFor(model => model.Gender, "F", htmlAttributes: new { @class = "control-label col-md-1" })Female
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.cPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.cPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.cPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Register" class="btn btn-success" />
+                            <input type="button" value="Login" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");" class="btn btn-success" />
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.cPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cPassword, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-default" />
-                <input type="button" value="Login" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-
-</div>
+        <br><br><br>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    </body>
 }
