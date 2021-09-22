@@ -1,19 +1,4 @@
-﻿@{ 
-    string email = ViewBag.UserName;
-    string btnText,btnLink;
-    if (email != null)
-    {
-        email = ViewBag.UserName;
-        btnText = ViewBag.btnText;
-        btnLink = ViewBag.btnLink;
-    }
-    else
-    {
-        email = "Guest";
-        btnText = "Login";
-        btnLink = "Login";
-    }
-}
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(@email, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(@Request.Cookies["User_id"].Value.ToString(), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -49,8 +34,15 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="text-success">@Html.ActionLink(btnText, btnLink, "Account")</li>
-                    <li class="text text-capitalize text-success">@Html.ActionLink("Sign Up", "Register", "Account")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="text-success">@Html.ActionLink("Log Out", "Logout", "Account")</li>
+                    }
+                    else
+                    {
+                        <li class="text-success">@Html.ActionLink("Log In", "Login", "Account")</li>
+                        <li class="text text-capitalize text-success">@Html.ActionLink("Sign Up", "Register", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>

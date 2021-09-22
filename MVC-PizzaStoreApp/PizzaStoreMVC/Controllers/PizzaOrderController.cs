@@ -7,6 +7,7 @@ using PizzaRepository.Classes;
 using PizzaDbData;
 namespace PizzaStoreMVC.Controllers
 {
+    [Authorize]
     public class PizzaOrderController : Controller
     {
         OrderPizzaRepo orderRepo;

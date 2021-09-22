@@ -8,6 +8,7 @@ using PizzaDbData;
 
 namespace PizzaStoreMVC.Controllers
 {
+    [Authorize]
     public class PizzaUserController : Controller
     {
         UserRepository userRepo;

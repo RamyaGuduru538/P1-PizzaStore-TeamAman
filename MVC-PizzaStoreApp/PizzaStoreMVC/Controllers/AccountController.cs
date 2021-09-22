@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using PizzaStoreMVC.Models;
 using PizzaRepository.Classes;
 using PizzaDbData;
+using System.Web.Security;
 
 namespace PizzaStoreMVC.Controllers
 {
@@ -33,13 +34,9 @@ namespace PizzaStoreMVC.Controllers
                     var LoginPass = db.Logins.Where(e => e.user_id == id).FirstOrDefault().Password;
                     if (obj.Email == userData.email && LoginPass == obj.Password)
                     {
-                        TempData["email"] = obj.Email;
-                        TempData["btnText"] = "Log Out";
-                        TempData["btnLink"] = "Logout";
-                        Session["userid"] = id;
-                        TempData.Keep();
-                        ViewBag.UserName = TempData["email"];
-                        ViewBag.btnLink = TempData["btnLink"];
+                        HttpCookie cookie = new HttpCookie("User_id", (userData.id).ToString());
+                        Response.Cookies.Add(cookie);
+                        FormsAuthentication.SetAuthCookie(obj.Email, false);
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -51,7 +48,6 @@ namespace PizzaStoreMVC.Controllers
 
         public ActionResult Register()
         {
-            //Models.Register obj = new Models.Register();
             return View();
         }
         [HttpPost]
@@ -78,7 +74,7 @@ namespace PizzaStoreMVC.Controllers
         }
         public ActionResult Logout()
         {
-            Session.Clear();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home");
         }
     }

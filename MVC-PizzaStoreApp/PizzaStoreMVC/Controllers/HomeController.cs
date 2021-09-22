@@ -13,6 +13,7 @@ using PizzaStoreMVC.Models;
 
 namespace PizzaStoreMVC.Controllers
 {
+        [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -31,7 +32,6 @@ namespace PizzaStoreMVC.Controllers
         public ActionResult Contact()
         {
             ContactUs contactUs = new ContactUs();
-            //ViewBag.Message = "Your contact page.";
             return View();
         }
 
