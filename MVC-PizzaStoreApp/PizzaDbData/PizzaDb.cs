@@ -39,11 +39,6 @@ namespace PizzaDbData
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderHistories)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Order>()
                 .HasMany(e => e.Payments)
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
@@ -61,6 +56,11 @@ namespace PizzaDbData
                 .IsUnicode(false);
 
             modelBuilder.Entity<Pizza>()
+                .HasMany(e => e.OrderHistories)
+                .WithRequired(e => e.Pizza)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Pizza>()
                 .HasMany(e => e.TakingPizzaOrders)
                 .WithRequired(e => e.Pizza)
                 .HasForeignKey(e => e.PizzasId)
@@ -71,13 +71,29 @@ namespace PizzaDbData
                 .IsUnicode(false);
 
             modelBuilder.Entity<Size>()
+                .HasMany(e => e.OrderHistories)
+                .WithRequired(e => e.Size)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Size>()
                 .HasMany(e => e.TakingPizzaOrders)
                 .WithRequired(e => e.Size)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TakingPizzaOrder>()
+                .HasMany(e => e.OrderHistories)
+                .WithRequired(e => e.TakingPizzaOrder)
+                .HasForeignKey(e => e.OrderID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Topping>()
                 .Property(e => e.name)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Topping>()
+                .HasMany(e => e.OrderHistories)
+                .WithRequired(e => e.Topping)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Topping>()
                 .HasMany(e => e.TakingPizzaOrders)

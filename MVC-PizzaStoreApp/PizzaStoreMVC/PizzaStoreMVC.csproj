@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Models\ContactUs.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\OrderHistory.cs" />
     <Compile Include="Models\OrderPizza.cs" />
     <Compile Include="Models\PizzaName.cs" />
     <Compile Include="Models\PizzaSize.cs" />
@@ -188,6 +189,7 @@
     <Content Include="Views\PizzaUser\EditUser.cshtml" />
     <Content Include="Views\PizzaOrder\OrderPizza.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\PizzaOrder\GetOrderHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -208,7 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PizzaDbData\PizzaDbData.csproj">
-      <Project>{9cfcd066-fa23-4e5b-a128-c729d60d3dc0}</Project>
+      <Project>{013ca6fe-0f84-4d4e-824c-dcea17ae1ab8}</Project>
       <Name>PizzaDbData</Name>
     </ProjectReference>
     <ProjectReference Include="..\PizzaRepository\PizzaRepository.csproj">

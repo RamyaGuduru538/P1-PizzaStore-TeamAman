@@ -32,7 +32,6 @@ namespace PizzaStoreMVC.Controllers
         {
             ContactUs contactUs = new ContactUs();
             //ViewBag.Message = "Your contact page.";
-
             return View();
         }
 

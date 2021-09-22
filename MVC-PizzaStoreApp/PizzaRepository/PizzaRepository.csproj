@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PizzaDbData\PizzaDbData.csproj">
-      <Project>{9cfcd066-fa23-4e5b-a128-c729d60d3dc0}</Project>
+      <Project>{013ca6fe-0f84-4d4e-824c-dcea17ae1ab8}</Project>
       <Name>PizzaDbData</Name>
     </ProjectReference>
   </ItemGroup>

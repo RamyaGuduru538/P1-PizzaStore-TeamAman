@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9CFCD066-FA23-4E5B-A128-C729D60D3DC0}</ProjectGuid>
+    <ProjectGuid>{013CA6FE-0F84-4D4E-824C-DCEA17AE1AB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PizzaDbData</RootNamespace>

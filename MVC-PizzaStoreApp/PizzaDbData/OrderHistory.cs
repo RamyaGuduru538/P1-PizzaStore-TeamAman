@@ -13,6 +13,22 @@ namespace PizzaDbData
 
         public int OrderID { get; set; }
 
-        public virtual Order Order { get; set; }
+        public int PizzaID { get; set; }
+
+        public int SizeID { get; set; }
+
+        public int ToppingID { get; set; }
+
+        public int TotalBill { get; set; }
+
+        public DateTime? OrderTime { get; set; }
+
+        public virtual Pizza Pizza { get; set; }
+
+        public virtual Size Size { get; set; }
+
+        public virtual TakingPizzaOrder TakingPizzaOrder { get; set; }
+
+        public virtual Topping Topping { get; set; }
     }
 }

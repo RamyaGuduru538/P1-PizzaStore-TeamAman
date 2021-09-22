@@ -11,6 +11,7 @@ namespace PizzaDbData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Size()
         {
+            OrderHistories = new HashSet<OrderHistory>();
             TakingPizzaOrders = new HashSet<TakingPizzaOrder>();
         }
 
@@ -21,6 +22,9 @@ namespace PizzaDbData
         public string name { get; set; }
 
         public int price { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderHistory> OrderHistories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TakingPizzaOrder> TakingPizzaOrders { get; set; }
