@@ -106,19 +106,13 @@ namespace PizzaStoreMVC.Controllers
                     orderObj.OrderTime = DateTime.Now;
                    
                     totalBill = orderRepo.GetBillPrice(orderObj);
-                    TempData["Message"] = "Order Placed Successfully";
-                    TempData["color"] = "green";
                     return totalBill;
                 }
                 else
                 {
-                    TempData["Message"] = "Please Login First";
-                    TempData["color"] = "red";
                     return totalBill;
                 }
             }
-            TempData["Message"] = "Please select item";
-            TempData["color"] = "red";
             return totalBill;
         }
     }

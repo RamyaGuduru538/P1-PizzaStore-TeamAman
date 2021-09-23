@@ -47,6 +47,43 @@
             font-weight: 400;
             color: white;
         }
+        #dropdown{
+            color: silver;
+            cursor: pointer;
+            margin-top:12px;
+            margin-right:3px;
+        }
+         #dropdown:hover {
+            color:white;
+        }
+            #dropdown #insidedropdown {
+                visibility: hidden;
+                display: none;
+                width: 180px;
+                height: 100px;
+                position: absolute;
+            }
+                #dropdown #insidedropdown li{
+                    list-style:none;
+                    display:inline;
+                }
+                #dropdown:hover > #insidedropdown, #dropdown #insidedropdown:hover {
+                    visibility: visible;
+                    display: block;
+                    background-color: #101010;
+                    opacity:0.9;
+                }
+        #insidedropdown li a{
+            color: silver;
+            display:inline-block;
+            margin-left:-15px;
+            padding-top: 10px;
+            padding-left: 10px;
+            text-decoration:none;
+        }
+        #insidedropdown li a:hover{
+            color: white;
+        }
     </style>
 </head>
 <body style=" background: url('../../fonts/Images/Pizzastore.png') no-repeat center center fixed; background-repeat: no-repeat; background-size: cover;">
@@ -58,20 +95,57 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(@Request.Cookies["User_email"].Value.ToString(), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (@Request.Cookies["User_email"] != null)
+                {
+                    @Html.ActionLink("Welcome, "+@Request.Cookies["User_email"].Value.ToString(), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Guest", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Order Pizza", "OrderPizza", "PizzaOrder")</li>
-                    <li>@Html.ActionLink("Order History", "GetOrderHistory", "PizzaOrder")</li>
+                    @if (@Request.Cookies["User_email"] != null)
+                    {
+                        if (@Request.Cookies["User_email"].Value.ToString() == "Aman Sharma")
+                        {
+                            <li>@Html.ActionLink("Order History", "GetAllOrderHistory", "Admin")</li>
+                        }
+                    }
 
+                    @if (@Request.Cookies["User_email"] != null)
+                    {
+                        if (@Request.Cookies["User_email"].Value.ToString() == "Aman Sharma")
+                        {
+                            <li>@Html.ActionLink("All User", "GetAllUser", "PizzaUser")</li>
+                            <li id="dropdown">
+                                Add Item&#9660
+                                <ul id="insidedropdown">
+                                    <li>@Html.ActionLink("Add Pizza", "AddPizza", "Admin")</li>
+                                    <li>@Html.ActionLink("Add Topping", "AddTopping", "Admin")</li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li id="dropdown">
+                                Order&#9660
+                                <ul id="insidedropdown">
+                                    <li>@Html.ActionLink("Order Pizza", "OrderPizza", "PizzaOrder")</li>
+                                    <li>@Html.ActionLink("Order History", "GetOrderHistory", "PizzaOrder")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        }
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li class="text-success">@Html.ActionLink("Profile", "GetUserById/"+ @Request.Cookies["User_id"].Value, "PizzaUser")</li>
                         <li class="text-success">@Html.ActionLink("Log Out", "Logout", "Account")</li>
                     }
                     else
@@ -102,22 +176,7 @@
         </footer>
     </div>
 
-    <script>
-        var myIndex = 0;
-        carousel();
 
-        function carousel() {
-        var i;
-        var x = document.getElementsByClassName("background-img");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-        }
-    </script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

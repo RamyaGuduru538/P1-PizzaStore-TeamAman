@@ -10,7 +10,7 @@ namespace PizzaStoreMVC.Models
     {
         [DisplayName("Order Id")]
         public int OrderId { get; set; }
-        [DisplayName("Full Name")]
+        [DisplayName("Pizza Name")]
         public string PizzaName { get; set; }
 
         [DisplayName("Pizza Size")]

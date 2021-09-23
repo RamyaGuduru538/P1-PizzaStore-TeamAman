@@ -4,7 +4,7 @@
     ViewBag.Title = "EditUser";
 }
 
-<h2>EditUser Details</h2>
+<h2>Edit User Details</h2>
 
 @using (Html.BeginForm("UpdateDetails","PizzaUser",FormMethod.Post))
 {
@@ -43,11 +43,9 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Save" class="btn btn-default " style="border-color:black;color:black" />
         </div>
     </div>
-    <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Back to List", "GetAllUser")
-    </div>
+   
 </div>
 }

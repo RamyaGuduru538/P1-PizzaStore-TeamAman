@@ -4,42 +4,53 @@
     ViewBag.Title = "GetUserById";
 }
 
-<h2>GetUserById</h2>
+<h2>User Profile</h2>
 
 <div>
-    <h2>User Detail</h2>
+    <h4>Details</h4>
     <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Email</th>
-                <th>Zipcode</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayFor(model => model.Id)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Zipcode)
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    @Html.ActionLink("<< Back", "GetAllUser")
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name) :
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zipcode) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender) :
+        </dt>
+        @if (Model.Gender == 'M')
+        {
+            <dd>
+                Male
+            </dd>
+        }
+        else
+        {
+            <dd>
+                Female
+            </dd>
+        }
+    </dl>
 </div>
-
+<p style="padding-left:100px">
+    @Html.ActionLink("Edit", "EditUser", new { id = Model.Id }) 
+</p>

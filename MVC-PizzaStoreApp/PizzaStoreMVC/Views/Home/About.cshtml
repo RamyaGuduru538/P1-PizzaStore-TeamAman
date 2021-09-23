@@ -1,7 +1,153 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<style>
+    .background {
+        background-image: url("https://c4.wallpaperflare.com/wallpaper/490/486/544/food-pizza-glass-mushroom-wallpaper-preview.jpg");
+        height: 85vh;
+        background-size: cover;
+        margin: 0px;
+        width: 100%;
+        padding-top: 390px;
+    }
 
-<p>Use this area to provide additional information.</p>
+    .main-page-heading {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        color: black;
+        text-align: center;
+    }
+
+    .main-page-para {
+        font-family: sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: black;
+    }
+
+    / Pizza Product /
+    .product-banner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 50rem;
+        background-color: #243a6f;
+    }
+
+    .product-banner .right {
+        align-self: center;
+        text-align: center;
+        padding: 1.6rem;
+        background-color: #243a6f;
+        margin: 20px 50px;
+    }
+
+    .product-banner .content h2 {
+        color: #fbb419;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        margin-top:20px;
+    }
+
+    .product-banner .content .discount {
+        color: #b888ff;
+    }
+
+    .product-banner .content h1 span {
+        color: #fff;
+        font-size: 6rem;
+        font-weight: 700;
+        display: block;
+        line-height: 1;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #fc7c7c;
+        padding: 1.2rem 4rem;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 3rem;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .card {
+        flex: 0 0 300px;
+        margin: 60px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    }
+
+        .card img {
+            max-width: 100%;
+        }
+
+        .card .text {
+            padding: 0 20px 20px;
+        }
+
+    h3 {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <br />
+    <div class="background">
+        <h1 class="main-page-heading">Creating happier everyday lives</h1>
+        <p class="main-page-para">Scroll for more.</p>
+    </div><br /><br />
+
+    <!-- About Us -->
+    <section class="section">
+        <div class="product-banner">
+           
+            <div class="right">
+                <div class="content">
+                    <h2><span class="discount">ABOUT </span> US</h2>
+                    <p id="sec1" style="color: white; text-align: center; font-size: 20PX; margin-bottom:20px; text-align:justify; padding:20px 40px;">
+                        Launched in 2018, Our technology platform connects customers,
+                        restaurant partners and delivery partners, serving their multiple needs.
+                        Customers use our platform to search and discover restaurants, read and
+                        write customer generated reviews and view and upload photos, order food
+                        delivery, book a table and make payments while dining-out at restaurants.
+                        We also operate a one-stop procurement solution, Hyperpure, which
+                        supplies high quality ingredients and kitchen products to restaurant partners.
+                        We also provide our delivery partners with transparent and flexible earning
+                        opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main class="cards">
+        <article class="card" style="margin-left: 150px;">
+            <img src="~/fonts/Images/pizza2.jpg">
+            <div class="text">
+                <h3>Opening Hours</h3>
+                <p>Tuesday 10.00 - 24.00</p>
+                <p>Wednesday 10.00 - 24.00</p>
+                <p>Thursday 10:00 - 24:00</p>
+            </div>
+        </article>
+        <article class="card">
+            <img src="~/fonts/Images/pizza4.jpg">
+            <div class="text">
+                <h3>Opening Hours</h3>
+                <p>Friday 10:00 - 12:00</p>
+                <p>Saturday 10:00 - 23:00</p>
+                <p>Sunday and Monday Closed</p>
+            </div>
+        </article>
+    </main>
+</body>

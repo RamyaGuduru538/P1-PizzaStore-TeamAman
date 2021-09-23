@@ -19,8 +19,7 @@
                 <th scope="row">@user.id</th>
                 <td>@user.Name</td>
                 <td>@user.Gender</td>
-                <td>@Html.ActionLink("Detail", "GetUserById", new { id = @user.id }) |
-                    @Html.ActionLink("Edit", "EditUser", new { id = @user.id })
+                <td>@Html.ActionLink("Detail", "GetUserById", new { id = @user.id }) 
                 </td>
             </tr>
         }

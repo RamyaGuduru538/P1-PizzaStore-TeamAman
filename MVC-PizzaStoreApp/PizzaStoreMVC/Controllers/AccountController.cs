@@ -7,6 +7,7 @@ using PizzaStoreMVC.Models;
 using PizzaRepository.Classes;
 using PizzaDbData;
 using System.Web.Security;
+using System.Net;
 
 namespace PizzaStoreMVC.Controllers
 {
@@ -35,8 +36,12 @@ namespace PizzaStoreMVC.Controllers
                     if (obj.Email == userData.email && LoginPass == obj.Password)
                     {
                         Session["userid"] = userData.id;
-                        HttpCookie cookie = new HttpCookie("User_email", (userData.email).ToString());
+                        HttpCookie cookie = new HttpCookie("User_email", (userData.Name).ToString());
+                        HttpCookie cookie1 = new HttpCookie("User_id", (userData.id).ToString());
+
                         Response.Cookies.Add(cookie);
+                        Response.Cookies.Add(cookie1);
+
                         FormsAuthentication.SetAuthCookie(obj.Email, false);
                         return RedirectToAction("Index", "Home");
                     }
@@ -75,8 +80,41 @@ namespace PizzaStoreMVC.Controllers
         }
         public ActionResult Logout()
         {
+            var c = new HttpCookie("User_email")
+            {
+                Expires = DateTime.Now.AddDays(-1)
+            };
+            var c1 = new HttpCookie("User_id")
+            {
+                Expires = DateTime.Now.AddDays(-1)
+            };
+            Response.Cookies.Add(c);
+            Response.Cookies.Add(c1);
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home");
+        }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(Models.ForgotPassword forgot)
+        {
+            if (ModelState.IsValid)
+            {
+                int user_id = db.Users.Include("Logins").Where(u => u.email == forgot.Email).Select(u => u.id).FirstOrDefault();
+                if (user_id > 0)
+                {
+                    PizzaDbData.Login loginData = db.Logins.Where(p => p.user_id == user_id).FirstOrDefault();
+                    loginData.Password = forgot.Password;
+                    db.SaveChanges();
+                    return RedirectToAction("Login","Account");
+                }
+                TempData["Message"] = "No Record Found with this Email";
+                TempData["color"] = "red";
+                return View();
+            }
+            return View();
         }
     }
 }

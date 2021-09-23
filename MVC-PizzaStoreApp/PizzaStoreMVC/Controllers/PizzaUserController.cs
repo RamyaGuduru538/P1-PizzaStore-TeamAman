@@ -52,7 +52,8 @@ namespace PizzaStoreMVC.Controllers
             obj.email = reg.Email; obj.Zipcode = reg.Zipcode;
             
             userRepo.UpdateData(obj);
-            return RedirectToAction("GetAllUser", "PizzaUser");
+            return RedirectToAction("GetUserById/"+reg.id, "PizzaUser");
         }
+
     }
 }

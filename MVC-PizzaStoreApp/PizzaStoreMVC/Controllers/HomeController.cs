@@ -13,32 +13,30 @@ using PizzaStoreMVC.Models;
 
 namespace PizzaStoreMVC.Controllers
 {
-        [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.UserName = TempData["email"];
-            ViewBag.btnText = TempData["btnText"];
-            ViewBag.btnLink = TempData["btnLink"];
             return View();
         }
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+        [Authorize]
         public ActionResult Contact()
         {
             ContactUs contactUs = new ContactUs();
             return View();
         }
-
+        [Authorize]
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact(ContactUs model)
+        public  ActionResult Contact(ContactUs model)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,7 @@ namespace PizzaStoreMVC.Controllers
             }
             return View(model);
         }
-
+        [Authorize]
         public ActionResult Sent()
         {
             return View();
