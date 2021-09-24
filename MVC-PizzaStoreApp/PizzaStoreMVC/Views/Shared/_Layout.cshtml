@@ -84,6 +84,18 @@
         #insidedropdown li a:hover{
             color: white;
         }
+        #logOutBtn {
+            background-color: red;
+            margin-top: 9px;
+            border-radius: 5px;
+            color: white;
+            border: 2px solid black;
+        }
+        #logOutBtn:hover {
+            background-color: black;
+            color: white;
+            border:2px solid white;
+        }
     </style>
 </head>
 <body style=" background: url('../../fonts/Images/Pizzastore.png') no-repeat center center fixed; background-repeat: no-repeat; background-size: cover;">
@@ -145,9 +157,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li class="text-success">@Html.ActionLink("Profile", "GetUserById/"+ @Request.Cookies["User_id"].Value, "PizzaUser")</li>
-                        <li class="text-success">@Html.ActionLink("Log Out", "Logout", "Account")</li>
-                    }
+                        <li class="text-success">@Html.ActionLink("Profile", "GetUserById/" + @Request.Cookies["User_id"].Value, "PizzaUser")</li>
+                        <li class="text-success"><input id="logOutBtn"  type="button" value="Log Out"/> </li>
+                    } 
                     else
                     {
                         <li class="text-success">@Html.ActionLink("Log In", "Login", "Account")</li>
@@ -176,10 +188,19 @@
         </footer>
     </div>
 
-
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $("#logOutBtn").click(function () {
+                var isLogOut = confirm("Do you want logout?");
+                if (isLogOut)
+                    window.location.href = "../Account/Logout";
+                else
+                    window.location.href = "../Home/Index";
+            });
+        });
+    </script>
 </body>
 </html>

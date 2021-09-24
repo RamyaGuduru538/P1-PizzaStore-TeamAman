@@ -5,7 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function () {
-        $('#b1').click(function () {
+        $('.btn').click(function () {
             window.location.href = "../PizzaOrder/OrderPizza";
         });
     });
@@ -64,6 +64,10 @@
         text-transform: uppercase;
         margin-top: 3rem;
     }
+    .btn:hover {
+        background-color: black;
+        color: white;
+    }
 
     /* Testimonials */
     .testimonial-center {
@@ -74,7 +78,7 @@
 
     .testimonial {
         position: relative;
-        padding: 5rem;
+        padding: 4rem;
         background-color: #fff;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
         transition: all 300ms ease-in-out;
@@ -127,6 +131,34 @@
         display: table;
         content: none;
     }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .card {
+        flex: 0 0 300px;
+        margin: 30px;
+        margin-top: 0px;
+        border: 1px solid #101010;
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    }
+
+        .card img {
+            max-width: 100%;
+        }
+
+        .card .text {
+            padding: 0 20px 20px;
+            background-color: white;
+        }
+
+    h4 {
+        padding-top: 10px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
 </style>
 
 @section carousel{
@@ -167,7 +199,63 @@
             </div>
         </div>
     </section>
-    <br><br><br>
+    <br><br>
+
+    <!--Pizza Menu-->
+    <h2 style="text-align: center; color: black; font-weight: bold; font-size: 30px; background-color: yellow; padding: 10px;">Pizza Menu</h2>
+    <br><br>
+    <main class="cards">
+        <article class="card">
+            <img src="~/fonts/Images/Chinese.jpg">
+            <div class="text">
+                <h4>CHINESE PIZZA</h4>
+                <p>Perfect pizza for all Chinese lovers</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+        <article class="card">
+            <img src="~/fonts/Images/ThinCrust.jpg">
+            <div class="text">
+                <h4>THIN CRUST PIZZA</h4>
+                <p>Pizza for slim people</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+        <article class="card">
+            <img src="~/fonts/Images/VeggieParadise.jpg">
+            <div class="text">
+                <h4>VEGGIE PARADISE</h4>
+                <p>Veggie Pizza for vegitarians</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="~/fonts/Images/ChickenDominator.jpg">
+            <div class="text">
+                <h4>CHICKEN DOMINATOR</h4>
+                <p>A pizza which will always dominate your list</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+        <article class="card">
+            <img src="~/fonts/Images/ChickenSausage.jpg">
+            <div class="text">
+                <h4>CHICKEN SAUSAGE</h4>
+                <p>Italian pizza with lot's of delicious meat.</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+        <article class="card">
+            <img src="~/fonts/Images/ChickenGolden.jpg">
+            <div class="text">
+                <h4>CHICKEN GOLDEN</h4>
+                <p>A special pizza with golden wings for the hungry one.</p>
+                <input class="btn" type="button" value="Order" />
+            </div>
+        </article>
+    </main>
+    <br><br>
 
     <!-- Testimonials -->
     <section class="section">
@@ -177,7 +265,7 @@
         <div class="testimonial-center container">
             <div class="testimonial">
                 <span>&ldquo;</span>
-                <p style="text-align: left">
+                <p style="text-align: justify">
                     I often order from Pizzeria.
                     They serve thin crust pizza
                     Their Chicken Dominator pizza is a must try.
@@ -198,7 +286,7 @@
             </div>
             <div class="testimonial">
                 <span>&ldquo;</span>
-                <p style="text-align: left">
+                <p style="text-align: justify">
                     This place has never disappointed me, all cusisines are delectable.
                     Packaging is amazing. My personal favorite is their cheeze burst pizza!!!
                     Just loved them must try once.
@@ -217,7 +305,7 @@
             </div>
             <div class="testimonial">
                 <span>&ldquo;</span>
-                <p style="text-align: left">
+                <p style="text-align: justify">
                     Their pizza are the best out of all .
                     The taste of their pizza are more than amazing .
                     I have ordered pizza and beverages from here for my brother's bday.

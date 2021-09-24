@@ -59,7 +59,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Place Order" class="btn btn-default" />
-                <input id="getBillPrice" type="button" mouseenter="setBtn()" mouseleave="setBtn()"  value="Get Price"  class="btn btn-default" />
+                <input id="getBillPrice" type="button"   value="Get Price"  class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -71,17 +71,6 @@
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
-    function setBtn() {
-        var PizzaId = parseInt($("#PizzaName").val());
-        var SizeId = parseInt($("#PizzaSize").val());
-        var ToppId = parseInt($("#PizzaTopping").val());
-        console.log("hello");
-        if (PizzaId > 0 && SizeId > 0 && ToppId > 0)
-            $("#getBillPrice").prop("disabled", false);
-        else
-            $("#getBillPrice").prop("disabled", true);
-    }
-
     $(document).ready(function () {
 
         $("#getBillPrice").click(function () {

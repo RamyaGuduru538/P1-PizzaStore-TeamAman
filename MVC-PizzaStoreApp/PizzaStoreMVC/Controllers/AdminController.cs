@@ -8,7 +8,7 @@ using PizzaDbData;
 
 namespace PizzaStoreMVC.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         OrderPizzaRepo orderRepo;

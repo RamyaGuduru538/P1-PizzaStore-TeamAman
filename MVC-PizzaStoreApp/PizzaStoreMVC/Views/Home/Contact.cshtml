@@ -20,10 +20,10 @@
             margin-bottom: 50px;
         }
 
-        .btn:hover {
-            background-color: #101010;
-            color: white;
-        }
+            .btn:hover {
+                background-color: #101010;
+                color: white;
+            }
 
         .form-group {
             padding-right: 20px;
@@ -31,25 +31,56 @@
             position: relative;
         }
 
-        .form-group label {
-            display: inline-block;
-            margin-bottom: 5px;
-            font-size: 20px;
+            .form-group label {
+                display: inline-block;
+                margin-bottom: 5px;
+                font-size: 20px;
+            }
+
+            .form-group input {
+                width: 95%;
+                border: 2px solid #f0f0f0;
+                border-radius: 5px;
+                display: block;
+                font-family: 'Mulish', sans-serif;
+                font-size: 15px;
+                padding: 12px;
+            }
+
+                .form-group input:focus {
+                    outline: 0;
+                    border-color: #777;
+                }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            height: 650px;
         }
 
-        .form-group input {
-            width: 95%;
-            border: 2px solid #f0f0f0;
-            border-radius: 5px;
-            display: block;
-            font-family: 'Mulish', sans-serif;
-            font-size: 15px;
-            padding: 12px;
+        .card {
+            flex: 0 0 500px;
+            margin: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+            background-color: #243a6f;
+            color: #b888ff;
         }
 
-        .form-group input:focus {
-            outline: 0;
-            border-color: #777;
+            .card .text {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+
+        h2 {
+            font-weight: bold;
+            text-decoration: underline;
+            text-align: center;
+            color: yellow;
+        }
+
+        span {
+            color: #fbb419;
         }
     </style>
 </head>
@@ -57,36 +88,50 @@
 <body>
 
     <h1>@ViewBag.Message</h1>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <h2>Your Feedback matters!! We are happy to help you:)</h2>
-        <hr /><br />
-        <div class="form-group ">
-            @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label grp" })
-            <div class="col-md-10 grp">
-                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.FromName, "", new { @class = "text-danger" })
+    <main class="cards">
+        <article class="card">
+            <div class="text">
+                <h2>CONTACT US</h2><br />
+                <p style="margin-left:20px">EMAIL : <span>pizzeria24@gmail.com</span></p><br />
+                <p style="margin-left:20px">ADDRESS : <span>24 Dream House, 2410 Dreamville, Mumbai, INDIA</span></p><br />
+                <p style="margin-left:20px">PHONE : <span>9898539750</span></p>
+                <img src="~/fonts/Images/map.jpg" style="height: 250px; width: 400px; margin-left: 40px; margin-top: 10px;">
             </div>
-        </div><br />
-        <div class="form-group ">
-            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label grp" })
-            <div class="col-md-10 grp">
-                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+        </article>
+        <article class="card">
+            <div class="text">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <h2>Your Feedback matters!! We are happy to help you:)</h2>
+                    <hr /><br />
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label grp" })
+                        <div class="col-md-10 grp">
+                            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FromName, "", new { @class = "text-danger" })
+                        </div>
+                    </div><br /><hr />
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label grp" })
+                        <div class="col-md-10 grp">
+                            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div><br /><br /><hr />
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label grp" }) &nbsp;
+                        <div class="col-md-10 grp">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                        </div>
+                    </div><br />
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-dark" value="Send" />
+                    </div>
+                }
             </div>
-        </div><br />
-        <div class="form-group ">
-            @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label grp" })
-            <div class="col-md-10 grp">
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
-            </div>
-        </div><br />
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-dark" value="Send" />
-        </div>
-    }
+        </article>
+    </main>
 </body>
 </html>
